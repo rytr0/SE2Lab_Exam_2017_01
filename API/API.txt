@@ -3,12 +3,12 @@ info:
   title: Pizza WS
   description: A web services that manages the menu of a pizzeria
   version: "1.0.0"
-host: myserver.it
+host: 127.0.0.1:5000
 schemes:
-  - https
+  - http
 basePath: /
 produces:
-  - application/json
+  - text/html
 consumes:
   - application/json
 paths:
@@ -52,12 +52,12 @@ paths:
         - name: ID
           in: formData
           description: ID of the pizza
-          required: false
-          type: string
+          required: true
+          type: integer
         - name: name
           in: formData
           description: name of the pizza
-          required: false
+          required: true
           type: string
       responses:
         200:

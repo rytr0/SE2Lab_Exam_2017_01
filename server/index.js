@@ -261,8 +261,31 @@ app.post('/addPizza', function(request, response)
 	}   
 
 });
+app.post('/updatePizzasByPrice', function(request, response) 
+{	
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
 
-//INSERIRE CODICE QUI SOTTO
+	var price;
+	var increment;
+	var lower;
+    price=request.body.price;
+    increment =request.body.increment;
+    lower = request.body.lower;
+    
+    response.writeHead(200, headers);
+	response.end(JSON.stringify(pizzaManager.updatePizza(price,increment,lower)));
+
+   
+
+});
+
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

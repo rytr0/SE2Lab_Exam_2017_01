@@ -135,6 +135,39 @@ var insertPizza = function insertPizza(pizza)
 	else
 		return false;
 }
+var updatePizza =function updatePizza(price,increment,lower)
+{
+    var modifiedPizzas=[];
+    price=parseFloat(price);
+    increment=parseFloat(increment);
+    if(lower==true)
+    {
+        for (i=0; i < menu.length; i++)
+	    {
+            if (menu[i].price>price)
+            {
+				menu[i].price=menu[i].price+increment;
+                modifiedPizzas.push[menu[i]];
+            }
+        }
+    }
+    else
+    {
+       for (i=0; i< menu.length; i++)
+	   {
+          if (menu[i].price<price)
+            {
+				menu[i].price=menu[i].price+increment;
+                modifiedPizzas.push[menu[i]];                
+            }
+        }
+        
+    }
+    return modifiedPizzas;
+
+
+    
+}
 
 
 //INSERIRE CODICE QUI SOTTO
@@ -146,3 +179,4 @@ exports.deletePizzaID = deletePizzaID;
 exports.deletePizzaName = deletePizzaName; 
 exports.insertPizza = insertPizza; 
 exports.getMenu = getMenu; 
+exports.updatePizza=updatePizza;

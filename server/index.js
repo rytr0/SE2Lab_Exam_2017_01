@@ -277,9 +277,9 @@ app.post('/updatePizzasByPrice', function(request, response)
     price=request.body.price;
     increment =request.body.increment;
     lower = request.body.lower;
-    
+    var pizzas=pizzaManager.updatePizza(price,increment,lower);
     response.writeHead(200, headers);
-	response.end(JSON.stringify(pizzaManager.updatePizza(price,increment,lower)));
+	response.end(JSON.stringify(pizzas));
 
    
 
